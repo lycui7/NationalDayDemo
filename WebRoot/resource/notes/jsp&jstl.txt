@@ -1,0 +1,39 @@
+合理运用jsp9大内置对象和el表达式11隐式对象能简化代码
+1.jsp9大内置对象
+内置对象名          类型
+request	       HttpServletRequest
+response       HttpServletResponse
+config         ServletConfig
+application    ServletContext
+session        HttpSession
+exception      Throwable
+page           Object(this)
+out            JspWriter
+pageContext    PageContext
+
+2.jsp4大域对象
+ServletContext     application域
+HttpServletRequet  request域
+HttpSession        session域
+PageContext        page域
+
+3.EL11隐式对象
+与作用范围有关的EL隐含对象：pageScope    requestScope    sessionScope    applicationScope
+与输入有关的隐含对象：param    paramValues
+用来取得使用者的cookie值：cookie
+读取请求的头数据： header    headerValues
+读取设置在web.xml中的参数值： initParam
+用于取得其他有关用户要求或页面的详细信息: pageContext
+
+4.EL中两种写法等价：${param["myTruth"]} = ${param.myTruth}
+5.EL遍历可迭代的数据结构写法
+    <c:foreach  items="${sessionScope.userList}"  var="userItem"  begin="1"  end="10"  step="3"  varStatus="userStatus"> XXX </c:foreach>
+    重点：varStatus中的属性：current    index   count   first   last    begin   end     step
+6.EL中的if判断
+    <c:if test="${salary > 2000}" var="flag" scope="session">
+       <p>我的工资为: <c:out value="${salary}"/><p>
+    </c:if>
+
+7.在你的项目中使用JSTL标签库需要导入standard.jar和jstl.jar两个jar包
+    注：<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
