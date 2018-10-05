@@ -1,0 +1,24 @@
+1.  public class HttpServletRequestWrapper extends ServletRequestWrapper implements HttpServletRequest
+    public class HttpServletResponseWrapper extends ServletResponsetWrapper implements HttpServletResponse
+
+2.  public interface HttpServletRequest extends ServletRequest
+    public interface HttpServletResponse extends ServletResponse
+
+3.  public abstract class HttpServlet extends GenericServlet implements Serializable
+    public abstract class GenericServlet extends Object implements Servlet, ServletConfig, Serializable
+    public interface Servlet
+
+4.  public interface HttpSession
+    public class Cookie extends Object implements Cloneable
+
+5.  javax.servlet.http.*
+
+6.  response.setContentType和response.setCharacterEncoding区别分析
+    ①setContentType(String type)：设置将发送到客户端的响应的内容类型，如果该响应尚未提交。
+                                    给定内容类型可能包含字符编码规范，例如 text/html;charset=UTF-8。
+                                    如果在调用 getWriter 之前调用此方法，则只根据给定内容类型设置响应的字符编码。
+    ②setCharacterEncoding(String charset)：设置将发送到客户端的响应的字符编码 (MIME charset)，
+                                            如果已通过 #setContentType 或 #setLocale 设置了字符编码，则此方法将重写该字符编码。
+
+
+
