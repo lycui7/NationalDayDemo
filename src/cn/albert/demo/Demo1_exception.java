@@ -1,6 +1,7 @@
 package cn.albert.demo;
 
 import javax.security.auth.callback.UnsupportedCallbackException;
+import java.io.UnsupportedEncodingException;
 
 /**
  * Exception的相关复习
@@ -30,6 +31,14 @@ public class Demo1_exception {
         }*/
        /* int result = demo1.devide1(8, 0);
         System.out.println(result);*/
+        String s = null;
+        try {
+            s = new String("崔璐瑶".getBytes("iso-8859-1"), "utf-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        System.out.println(s);
+
     }
     private double devide(double a , double b) {
         return a/b;

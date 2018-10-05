@@ -16,7 +16,7 @@
 </head>
 <body>
 <h1>欢迎页面</h1>
-<%--<p><%=request.getParameter("myTruth")%></p>
+<p><%=request.getParameter("myTruth")%></p>
 <p><%=request.getParameter("myName")%></p>
 <p><%=request.getParameter("myWhisper")%></p>
 <p><%=request.getParameter("mySex")%></p>
@@ -33,7 +33,7 @@
 %>
 </p>
 <p><%=request.getParameter("myCity")%></p>
-<p><%=request.getParameter("myFile")%></p>--%>
+<p><%=request.getParameter("myFile")%></p>
 <p>${param["myTruth"]}</p>
 <%--<p>${param.myTruth}</p>--%>
 <%--对于有多个值的我们需要遍历 el遍历--%>
