@@ -1,0 +1,43 @@
+Spring  核心是控制反转（IoC）和面向切面（AOP）
+        特性是分层的JavaSE/EE full-stack(一站式) 轻量级开源框架
+        优点 ：     	方便解耦，简化开发
+                    	AOP编程的支持
+                    	声明式事务的支持
+                    	方便程序的测试
+                    	方便集成各种优秀框架
+                    	降低JavaEE API的使用难度
+        分层架构：  一：core container -> beans,core,context,springEL
+                     二：data access/intergration -> jdbc,orm,oxm,jms,transactions
+                     三：web -> web,servlet,portlet,struts
+                     四：aop
+                     五：aspects
+                     六：instrumentation
+                     七：test
+        BeanFactory与ApplicationContext区别？？？
+                     	BeanFactory ：这是一个工厂，用于生成任意bean。采取延迟加载，第一次getBean时才会初始化Bean
+                       ApplicationContext：BeanFactory的子接口，功能更强大。（国际化处理、事件传递、Bean自动装配、各种不同应用层的Context实现）。当配置文件被加载，就进行对象实例化
+        spring配置里<context:annotation-config>和<context:component-scan>区别
+                       annotation-config处理@autowired之类的注解（共有四类） 前提是注解作用的类已经被注册到spring容器里（bean id=“” class=“”）
+                       component-scan除了包含annotation-config的作用外，还能自动扫描和注册base-package下有@component之类注解的类，将其作为bean注册到spring容器里
+        注解：按照类型注入：@Autowired
+                按照名称注入：@Autowired @Qualifier("名称") || @Resource("名称")
+        bean初始化和销毁：
+                    ①init-method="初始化方法名称"  destroy-method="销毁的方法名称">
+                    ②对应注解的 @PostConstruct @PreDestroy
+        BeanPostProcessor 后处理Bean
+                    实现此接口BeanPostProcessor，并将实现类提供给spring容器，spring容器将自动执行，
+                    在初始化方法前执行before()，在初始化方法后执行after()
+
+        Spring AOP与AspectJ
+                    Spring AOP:纯Java实现,在运行期通过代理方式向目标类织入增强代码
+                    AspectJ:基于Java语言的AOP框架,AspectJ扩展了Java语言，提供了一个专门的编译器，在编译时提供横向代码的织入
+         AOP编程中，两种编写通知advice的方式，一种是Spring自己的 另一种是AspectJ的
+                    ？？？选择spring AOP还是使用full aspectJ
+                    ①	AOP联盟为通知Advice定义了org.aopalliance.aop.Advice（依赖包，必须一起存在）
+                        org.springframework.aop包下有各类通知的接口，自定义通知需要实现这些接口
+                    ②  新版本Spring框架，建议使用AspectJ方式来开发AOP（注解开发）
+                        com.springsource.org.aspectj.weaver依赖包主要是提供aspectj的支持规范（含有切入点表达式、@Aspect等等）
+                        spring-aspects包是Spring提供的对AspectJ框架的整合
+                    注：<aop:aspect>  标准切面，可以有多个通知
+                        <aop:advisor> 特殊的切面，只有一个通知 和 一个切入点
+
