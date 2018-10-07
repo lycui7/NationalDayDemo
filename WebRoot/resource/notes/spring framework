@@ -31,7 +31,7 @@ Spring  核心是控制反转（IoC）和面向切面（AOP）
         Spring AOP与AspectJ
                     Spring AOP:纯Java实现,在运行期通过代理方式向目标类织入增强代码
                     AspectJ:基于Java语言的AOP框架,AspectJ扩展了Java语言，提供了一个专门的编译器，在编译时提供横向代码的织入
-         AOP编程中，两种编写通知advice的方式，一种是Spring自己的 另一种是AspectJ的
+        AOP编程中，两种编写通知advice的方式，一种是Spring自己的 另一种是AspectJ的
                     ？？？选择spring AOP还是使用full aspectJ
                     ①	AOP联盟为通知Advice定义了org.aopalliance.aop.Advice（依赖包，必须一起存在）
                         org.springframework.aop包下有各类通知的接口，自定义通知需要实现这些接口
@@ -40,4 +40,18 @@ Spring  核心是控制反转（IoC）和面向切面（AOP）
                         spring-aspects包是Spring提供的对AspectJ框架的整合
                     注：<aop:aspect>  标准切面，可以有多个通知
                         <aop:advisor> 特殊的切面，只有一个通知 和 一个切入点
+        事务Transaction
+                    特性 ①原子性：整体 ②一致性：完成 ③隔离性：并发 ④持久性：结果
+                    Spring-tx核心：三个顶级接口
+                    	PlatformTransactionManager  spring要管理事务，必须使用事务管理器(常用；DataSourceTransactionManager,HibernateTransactionManager)
+                    	TransactionDefinition       事务详情（事务定义），定义隔离级别，传播行为，是否只读
+                    	TransactionStatus           事务状态，spring用于记录当前事务运行状态（isNewTransaction(),hasSavePoint(),isRollbackOnly(),isCompleted()）
+                    =>  TransactionStatus getTransaction(TransactionDefinition definition)
+                        事务管理器 通过“事务详情”，获得“事务状态”，从而管理事务。
+                    AOP实现事务基于XML
+                        <tx:advice>将事务作为AOP切面（aspect）的通知(advice)
+                        <aop:advisor advice-ref pointcut>将事务通知织入（weaving）连接点
+                    AOP实现事务基于注解
+                        <tx:annotation-driven transaction-manager="？"/>使事务注解生效
+                        @Transactional
 
