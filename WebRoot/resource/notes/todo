@@ -1,0 +1,21 @@
+1.window 父类 panel 
+	$('#dr_auth').panel({title: "新title"});
+2.https://blog.csdn.net/qq_37192800/article/details/79199836
+	easyui 常用图标
+3.	https://www.cnblogs.com/cyjy/p/6182587.html
+	href=”javascript:void(0);”与href=”#"的区别
+4.http://www.jeasyui.net/plugins/183.html	
+	datagrid
+5.	https://www.cnblogs.com/szlbm/p/5806070.html
+	ORACLE 中ROWNUM用法总结!
+6.	
+	easyui的datagrid的load,reload,loadData的区别	
+7.	$('#cmbJob').combobox('clear');//清空选中项
+	$('#cmbJob').combobox('loadData', {});//清空option选项   
+8.	参数？？？
+function openProjectAwardInfoWin(t){
+    if(t==0){
+        clearprojectAwardInfo();
+    }
+    $('#winProjectAwardInfo').window('open'); 
+}
