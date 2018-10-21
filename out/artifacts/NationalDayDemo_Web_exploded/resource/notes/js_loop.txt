@@ -1,0 +1,10 @@
+1.js中三种定义变量的方式const， var， let的区别
+const:.const定义的变量不可以修改，而且必须初始化
+var:var定义的变量可以修改，如果不初始化会输出undefined，不会报错
+let:let是块级作用域，函数内部使用let定义后，对函数外部无影响
+
+2.for..of循环
+for...of 允许你遍历 Arrays（数组）, Strings（字符串）, Maps（映射）, Sets（集合）等可迭代的数据结构等
+new Array(a,b,c,d);添加：push() | 删除末尾元素：pop()| 连接两个数组：concat()| 转为字符串：join()
+new Set([a,b,c,d]);元素无重复，没有索引,添加和删除：add() delete()
+new Map([[a,b],[c,d]]);键不重复，添加和删除：set() delete()

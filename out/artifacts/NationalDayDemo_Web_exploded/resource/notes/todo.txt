@@ -1,0 +1,21 @@
+Listener(监听器)   Filter(过滤器)     Intercepter(拦截器)
+    重点：1.web.xml 的加载顺序是：ServletContext -> context-param -> listener -> filter -> servlet ，
+            而同个类型之间的实际程序调用的时候的顺序是根据对应的 mapping 的顺序进行调用的。
+          2.servlet生命周期：实例化 -> 初始化init -> 服务service -> 销毁destroy
+一 Listener
+监听域对象的创建与销毁
+1.监听ServletContext创建与销毁   ServletContextListener
+2.监听HttpSession创建与销毁   HttpSessionListener
+3.监听HttpServletRequest创建与销毁  ServletRequestListener
+监听域对象的属性变化
+1.监听ServletContext属性变化   ServletContextAttributeListener
+2.监听HttpSession属性变化   HttpSessionAttributeListener
+3.监听HttpServletRequest属性变化   ServletRequestAttributeListener
+
+二 Filter(Javaweb中的过滤器可以拦截所有访问web资源的请求或响应操作。)
+    重点：FilterChain
+        它提供了对某一资源的已过滤请求调用链的视图。
+        过滤器使用 FilterChain 调用链中的下一个过滤器，
+        如果调用的过滤器是链中的最后一个过滤器，则调用链末尾的资源。
+
+=》自己模拟实现一个全局编码过滤器（可以处理get,post）

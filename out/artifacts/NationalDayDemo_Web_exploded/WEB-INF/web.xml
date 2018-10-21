@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+    <listener>
+        <listener-class>cn.albert.listener.MyServletContextListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>cn.albert.listener.MyHttpServletRequestListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>cn.albert.listener.MyHttpSessionListener</listener-class>
+    </listener>
+    <filter>
+        <filter-name>MyCharacterEncodingFilter</filter-name>
+        <filter-class>cn.albert.filter.MyCharacterEncodingFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>MyCharacterEncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <servlet>
+        <servlet-name>FirstServlet</servlet-name>
+        <servlet-class>cn.albert.servlet.FirstServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SecondServlet</servlet-name>
+        <servlet-class>cn.albert.servlet.SecondServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FirstServlet</servlet-name>
+        <url-pattern>/firstServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SecondServlet</servlet-name>
+        <url-pattern>/secondServlet</url-pattern>
+    </servlet-mapping>
+    <welcome-file-list>
+        <welcome-file>welcome.jsp</welcome-file>
+    </welcome-file-list>
+</web-app>

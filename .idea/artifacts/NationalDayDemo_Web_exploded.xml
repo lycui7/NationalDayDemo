@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="NationalDayDemo:Web exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/NationalDayDemo_Web_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="NationalDayDemo/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="NationalDayDemo" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="lombok" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
